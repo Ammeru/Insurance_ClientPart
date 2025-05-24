@@ -1,8 +1,11 @@
+import {BrowserRouter} from "react-router-dom";
+import AppRouter from "./components/AppRouter.tsx";
+
 function App() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <h1 className="text-4xl font-bold text-red-500">Tailwind работает!</h1>
-        </div>
+        <BrowserRouter>
+            <AppRouter />
+        </BrowserRouter>
     )
 }
 
