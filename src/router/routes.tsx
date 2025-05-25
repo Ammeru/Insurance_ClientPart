@@ -47,24 +47,24 @@ interface AppRoute {
 }
 
 export const publicRoutes: AppRoute[] = [
-    { path: HOME_ROUTE, element: <HomePage/> },
-    { path: AUTH_ROUTE, element: <AuthPage/> },
-    { path: ABOUT_ROUTE, element: <AboutPage/> },
-    { path: INFO_CARGO_ROUTE, element: <InfoCargoInsurancePage/> },
-    { path: INFO_RESPONSIBILITY_ROUTE, element: <InfoResponsibilityInsurancePage/> },
-    { path: INFO_MULTIPLE_ROUTE, element: <InfoMultipleInsurancePage/> },
-    { path: NOT_FOUND_ROUTE, element: <NotFoundPage/> },
+    { path: HOME_ROUTE, element: <HomePage/> }, // Главная
+    { path: AUTH_ROUTE, element: <AuthPage/> }, // Аутентификация (Логин и регистрация на одной странице)
+    { path: ABOUT_ROUTE, element: <AboutPage/> }, // О нас
+    { path: INFO_CARGO_ROUTE, element: <InfoCargoInsurancePage/> }, // Страница информации
+    { path: INFO_RESPONSIBILITY_ROUTE, element: <InfoResponsibilityInsurancePage/> }, // Страница информации
+    { path: INFO_MULTIPLE_ROUTE, element: <InfoMultipleInsurancePage/> }, // Страница информации
+    { path: NOT_FOUND_ROUTE, element: <NotFoundPage/> }, // Страница 404
 ];
 
 export const authRoutes: AppRoute[] = [
-    { path: PROFILE_ROUTE, element: <UserMainProfilePage/> },
-    { path: PROFILE_SETTINGS_ROUTE, element: <ProfileSettingsPage/> },
-    { path: MY_POLICY_DETAILS_ROUTE + '/:id', element: <MyPolicyDetailsPage/> },
-    { path: CREATE_CARGO_ROUTE, element: <CreateCargoInsurancePage/> },
-    { path: CREATE_RESPONSIBILITY_ROUTE, element: <CreateResponsibilityInsurancePage/> },
-    { path: CREATE_MULTIPLE_ROUTE, element: <CreateMultipleInsurancePage/> },
-    { path: ADMIN_ROUTE, element: <AdminMainInsuranceListPage/> },
-    { path: INSURANCE_DETAILS_ROUTE + '/:id', element: <InsuranceDetailsPage/> },
-    { path: USER_LIST_ROUTE, element: <UserListPage/> },
-    { path: USER_DETAILS_ROUTE + '/:id', element: <UserDetailsPage/> },
+    { path: PROFILE_ROUTE, element: <UserMainProfilePage/> }, // Страница профиля (Профиль + страховки)
+    { path: PROFILE_SETTINGS_ROUTE, element: <ProfileSettingsPage/> }, // Настройки профиля
+    { path: MY_POLICY_DETAILS_ROUTE + '/:id', element: <MyPolicyDetailsPage/> }, // Детали страховки
+    { path: CREATE_CARGO_ROUTE, element: <CreateCargoInsurancePage/> }, // Создание страховки
+    { path: CREATE_RESPONSIBILITY_ROUTE, element: <CreateResponsibilityInsurancePage/> }, // Создание страховки
+    { path: CREATE_MULTIPLE_ROUTE, element: <CreateMultipleInsurancePage/> }, // Создание страховки
+    { path: ADMIN_ROUTE, element: <AdminMainInsuranceListPage/> }, // Страница админ-панели (Главная, список страховок)
+    { path: INSURANCE_DETAILS_ROUTE + '/:id', element: <InsuranceDetailsPage/> }, // Детали страховки из админ-панели
+    { path: USER_LIST_ROUTE, element: <UserListPage/> }, // Страница админ-панели (список пользователей)
+    { path: USER_DETAILS_ROUTE + '/:id', element: <UserDetailsPage/> }, // Детали пользователя из админ-панели
 ];

@@ -1,9 +1,11 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { authRoutes, publicRoutes } from '../router/routes.tsx';
 import { NOT_FOUND_ROUTE } from "../utils/consts.ts";
+import {useUserStore} from "../store/UserStore.ts";
 
 function AppRouter() {
-    const isAuth = false; // ЗАГЛУШКА
+    const isAuth = useUserStore((state) => state.isAuth);
+
     return (
         <Routes>
             {isAuth && authRoutes.map(({ path, element }) => (
