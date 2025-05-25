@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { jwtDecode } from 'jwt-decode';
 
-import * as userApi from '../api/userApi'; // 👈 импортируем все API-функции
+import { userApi } from '../api/userApi'; // импортируем все API-функции
 
 export type UserRole = "user" | "manager" | "admin";
 export const UserRole = {
@@ -86,6 +86,7 @@ export const useUserStore = create<UserStore>()(
                 set({ loading: true });
                 try {
                     const token = await userApi.login({ email, password });
+                    console.log(token);
                     localStorage.setItem('token', token);
                     const decoded: IUser = jwtDecode(token);
                     set({ isAuth: true, user: decoded });

@@ -46,7 +46,7 @@ interface AppRoute {
     element: ReactElement;
 }
 
-export const publicRoutes: AppRoute[] = [
+export const publicRoutes: AppRoute[] = [ // Маршруты для неавторизованных пользователей
     { path: HOME_ROUTE, element: <HomePage/> }, // Главная
     { path: AUTH_ROUTE, element: <AuthPage/> }, // Аутентификация (Логин и регистрация на одной странице)
     { path: ABOUT_ROUTE, element: <AboutPage/> }, // О нас
@@ -56,7 +56,7 @@ export const publicRoutes: AppRoute[] = [
     { path: NOT_FOUND_ROUTE, element: <NotFoundPage/> }, // Страница 404
 ];
 
-export const authRoutes: AppRoute[] = [
+export const authRoutes: AppRoute[] = [ // Маршруты для крутых пользователей
     { path: PROFILE_ROUTE, element: <UserMainProfilePage/> }, // Страница профиля (Профиль + страховки)
     { path: PROFILE_SETTINGS_ROUTE, element: <ProfileSettingsPage/> }, // Настройки профиля
     { path: MY_POLICY_DETAILS_ROUTE + '/:id', element: <MyPolicyDetailsPage/> }, // Детали страховки
