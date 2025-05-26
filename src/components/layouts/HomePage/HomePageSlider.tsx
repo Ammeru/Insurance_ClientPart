@@ -17,7 +17,8 @@ const HomePageSlider = () => {
 
     const prevSlide = () =>
         setCurrent((prev) => (prev - 1 + images.length) % images.length);
-    const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
+    const nextSlide = () =>
+        setCurrent((prev) => (prev + 1) % images.length);
     const goToSlide = (index: number) => setCurrent(index);
 
     const handleTouchStart = (e: React.TouchEvent) => {
@@ -53,12 +54,21 @@ const HomePageSlider = () => {
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
         >
-            {/* Slide image */}
-            <img
-                src={images[current]}
-                alt={`slide-${current}`}
-                className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
-            />
+            {/* Slide wrapper */}
+            <div
+                className="flex transition-transform duration-500 ease-in-out h-full"
+                style={{ transform: `translateX(-${current * 100}%)` }}
+            >
+                {images.map((img, index) => (
+                    <img
+                        key={index}
+                        src={img}
+                        alt={`slide-${index}`}
+                        className="w-full flex-shrink-0 object-cover h-full"
+                        draggable={false}
+                    />
+                ))}
+            </div>
 
             {/* Arrows */}
             <button

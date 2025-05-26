@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { useUserStore } from "../../../store/UserStore";
+import { useNavigate } from "react-router-dom";
+import { PROFILE_ROUTE } from "../../../utils/consts";
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const login = useUserStore((state) => state.login);
     const loading = useUserStore((state) => state.loading);
+    const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             console.log("Попытка логина:", email, password);
             await login({ email, password });
-            // Можно добавить редирект или тост
+            navigate(PROFILE_ROUTE);
         } catch (error) {
             alert("Ошибка авторизации");
         }

@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
+import { useUserStore } from "../../../store/UserStore";
 
 import CargoCard from "../../../assets/CargoCard.jpg";
 import ResponsibilityCard from "../../../assets/ResponsibilityCard.jpg";
 import MultipleCard from "../../../assets/MultipleCard.jpg";
 
-import { PROFILE_ROUTE, ABOUT_ROUTE,
+import { PROFILE_ROUTE, ABOUT_ROUTE, AUTH_ROUTE,
     INFO_CARGO_ROUTE, INFO_RESPONSIBILITY_ROUTE, INFO_MULTIPLE_ROUTE
 } from "../../../utils/consts.ts";
 
 
 const MainHomePage = () => {
+    const isAuth = useUserStore((state) => state.isAuth);
+
     return (
         <div className="mt-[70px] px-[120px]">
             {/* Верхний блок с кнопками */}
             <div className="flex justify-between gap-4 mb-8">
                 {[
-                    { text: "Личный кабинет", link: PROFILE_ROUTE },
+                    { text: "Личный кабинет", link: isAuth ? PROFILE_ROUTE : AUTH_ROUTE},
                     { text: "Страхование грузов", link: INFO_CARGO_ROUTE },
                     { text: "О компании", link: ABOUT_ROUTE },
                 ].map(({ text, link }, idx) => (

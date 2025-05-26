@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useUserStore } from "../../../store/UserStore";
+import { useNavigate } from "react-router-dom";
+import {PROFILE_ROUTE} from "../../../utils/consts.ts";
 
 const RegisterForm = () => {
     const { sendCode, register, loading } = useUserStore();
@@ -9,6 +11,7 @@ const RegisterForm = () => {
     const [code, setCode] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     const handleSendCode = async () => {
         setError(null);
@@ -25,6 +28,7 @@ const RegisterForm = () => {
         setError(null);
         try {
             await register({ email, password, code });
+            navigate(PROFILE_ROUTE);
         } catch (err) {
             setError("Ошибка регистрации. Проверьте код или пароль.");
         }

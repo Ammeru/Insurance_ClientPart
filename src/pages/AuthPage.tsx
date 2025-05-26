@@ -1,6 +1,9 @@
 import { useState } from "react";
 import LoginForm from "../components/layouts/AuthPage/LoginForm";
 import RegisterForm from "../components/layouts/AuthPage/RegisterForm";
+import { Link } from "react-router-dom";
+
+import {HOME_ROUTE} from "../utils/consts.ts";
 
 const AuthPage = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -22,6 +25,12 @@ const AuthPage = () => {
                             <p className="text-gray-600">
                                 Войдите в свой аккаунт, чтобы управлять страховыми полисами, отслеживать статус и многое другое.
                             </p>
+                            <Link
+                                to={HOME_ROUTE}
+                                className="mt-6 inline-block bg-gray-100 text-gray-800 px-5 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition"
+                            >
+                                На главную
+                            </Link>
                         </>
                     ) : (
                         <RegisterForm />
@@ -51,6 +60,12 @@ const AuthPage = () => {
                             <p className="text-gray-600">
                                 Зарегистрируйтесь, чтобы начать оформление страхования грузов, ответственности или по многоразовой программе.
                             </p>
+                            <Link
+                                to={HOME_ROUTE}
+                                className="mt-6 inline-block bg-gray-100 text-gray-800 px-5 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition"
+                            >
+                                На главную
+                            </Link>
                         </>
                     )}
 
